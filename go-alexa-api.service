@@ -1,0 +1,17 @@
+[Unit]
+Description=manages go-alexa-api
+After=multi-user.target
+
+[Service]
+Environment="MBR_APP_ID=<<APP_ID>>"
+Environment="FR_APP_ID=<<APP_ID>"
+Type=idle
+User=<<replace with user to run app as>>
+WorkingDirectory=/usr/apps/go-alexa-api
+ExecStart=/usr/apps/go-alexa-api/alexa
+Restart=always
+TimeoutStartSec=10
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
