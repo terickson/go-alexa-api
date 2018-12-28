@@ -30,7 +30,7 @@ var frTVActionHost = "http://192.168.72.20:8080/tv/actions"
 var mbTVActionHost = "http://192.168.72.25:8080/tv/actions"
 var frRokuActionHost = "http://192.168.72.110:8080/systems/family-room/actions"
 var mbRokuActionHost = "http://192.168.72.110:8080/systems/master-bedroom/actions"
-var frReceiverActionHost = "http://192.168.72.110:8081/receiver"
+var frReceiverActionHost = "http://192.168.72.110:8081/receiver/"
 
 func main() {
 	alexa.Run(applications, "8000")
@@ -465,13 +465,16 @@ func executeAction(host string, command string, value string) {
 	log.Println("body: ", bodyStr)
 	var jsonStr = []byte(bodyStr)
 	req, err := http.NewRequest("POST", host, bytes.NewBuffer(jsonStr))
+	if err != nil {
+		log.Fatal(err)
+	}
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
 	client.Timeout = time.Second * 15
 	resp, err := client.Do(req)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	defer resp.Body.Close()
 
@@ -487,13 +490,16 @@ func updateReceiver(host string, bodyStr string) {
 	log.Println("body: ", bodyStr)
 	var jsonStr = []byte(bodyStr)
 	req, err := http.NewRequest(http.MethodPut, host, bytes.NewBuffer(jsonStr))
+	if err != nil {
+		log.Fatal(err)
+	}
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
 	client.Timeout = time.Second * 15
 	resp, err := client.Do(req)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	defer resp.Body.Close()
 
