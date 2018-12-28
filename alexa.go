@@ -47,6 +47,8 @@ func FRIntentHandler(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 		go updateReceiver(frReceiverActionHost, "{\"on\": false}")
 	case "MUTE":
 		go updateReceiver(frReceiverActionHost, "{\"mute\": true}")
+	case "UNMUTE":
+		go updateReceiver(frReceiverActionHost, "{\"mute\": false}")
 	case "VOLUME":
 		var slotLevel, err = echoReq.GetSlotValue("Level")
 		if err != nil {
@@ -279,6 +281,20 @@ func frSetInput(inputType string) {
 		go executeAction(frTVActionHost, "PowerOn", "")
 		time.Sleep(500 * time.Millisecond)
 		go executeAction(frTVActionHost, "HDMI1", "")
+	case "DCUNIVERSE":
+		receiverPayload += ", \"input\": \"HDMI1\"}"
+		go updateReceiver(frReceiverActionHost, receiverPayload)
+		go executeAction(frRokuActionHost, "input", "DC Universe")
+		go executeAction(frTVActionHost, "PowerOn", "")
+		time.Sleep(500 * time.Millisecond)
+		go executeAction(frTVActionHost, "HDMI1", "")
+	case "DAILYBURN":
+		receiverPayload += ", \"input\": \"HDMI1\"}"
+		go updateReceiver(frReceiverActionHost, receiverPayload)
+		go executeAction(frRokuActionHost, "input", "Daily Burn")
+		go executeAction(frTVActionHost, "PowerOn", "")
+		time.Sleep(500 * time.Millisecond)
+		go executeAction(frTVActionHost, "HDMI1", "")
 	case "NETFLIX", "NET", "FLIX":
 		receiverPayload += ", \"input\": \"HDMI1\"}"
 		go updateReceiver(frReceiverActionHost, receiverPayload)
@@ -296,7 +312,7 @@ func frSetInput(inputType string) {
 	case "PRIME", "AMAZON":
 		receiverPayload += ", \"input\": \"HDMI1\"}"
 		go updateReceiver(frReceiverActionHost, receiverPayload)
-		go executeAction(frRokuActionHost, "input", "Amazon Video")
+		go executeAction(frRokuActionHost, "input", "Prime Video")
 		go executeAction(frTVActionHost, "PowerOn", "")
 		time.Sleep(500 * time.Millisecond)
 		go executeAction(frTVActionHost, "HDMI1", "")
@@ -388,6 +404,16 @@ func mbSetInput(inputType string) {
 		go executeAction(mbTVActionHost, "PowerOn", "")
 		time.Sleep(500 * time.Millisecond)
 		go executeAction(mbTVActionHost, "InputComponent1", "")
+	case "DCUNIVERSE":
+		go executeAction(mbRokuActionHost, "input", "DC Universe")
+		go executeAction(mbTVActionHost, "PowerOn", "")
+		time.Sleep(500 * time.Millisecond)
+		go executeAction(mbTVActionHost, "HDMI1", "")
+	case "DAILYBURN":
+		go executeAction(mbRokuActionHost, "input", "Daily Burn")
+		go executeAction(mbTVActionHost, "PowerOn", "")
+		time.Sleep(500 * time.Millisecond)
+		go executeAction(mbTVActionHost, "HDMI1", "")
 	case "NETFLIX", "NET", "FLIX":
 		go executeAction(mbRokuActionHost, "input", "Netflix")
 		go executeAction(mbTVActionHost, "PowerOn", "")
@@ -399,7 +425,7 @@ func mbSetInput(inputType string) {
 		time.Sleep(500 * time.Millisecond)
 		go executeAction(mbTVActionHost, "HDMI1", "")
 	case "PRIME", "AMAZON":
-		go executeAction(mbRokuActionHost, "input", "Amazon Video")
+		go executeAction(mbRokuActionHost, "input", "Prime Video")
 		go executeAction(mbTVActionHost, "PowerOn", "")
 		time.Sleep(500 * time.Millisecond)
 		go executeAction(mbTVActionHost, "HDMI1", "")
