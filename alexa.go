@@ -85,28 +85,28 @@ func FRIntentHandler(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 	case "UP":
 		var spaces = "1"
 		var slotSpaces, err = echoReq.GetSlotValue("Spaces")
-		if err == nil {
+		if err == nil && len(slotSpaces) > 0 {
 			spaces = slotSpaces
 		}
 		go executeAction(frRokuActionHost, "up", spaces)
 	case "DOWN":
 		var spaces = "1"
 		var slotSpaces, err = echoReq.GetSlotValue("Spaces")
-		if err == nil {
+		if err == nil && len(slotSpaces) > 0 {
 			spaces = slotSpaces
 		}
 		go executeAction(frRokuActionHost, "down", spaces)
 	case "LEFT":
 		var spaces = "1"
 		var slotSpaces, err = echoReq.GetSlotValue("Spaces")
-		if err == nil {
+		if err == nil && len(slotSpaces) > 0 {
 			spaces = slotSpaces
 		}
 		go executeAction(frRokuActionHost, "left", spaces)
 	case "RIGHT":
 		var spaces = "1"
 		var slotSpaces, err = echoReq.GetSlotValue("Spaces")
-		if err == nil {
+		if err == nil && len(slotSpaces) > 0 {
 			spaces = slotSpaces
 		}
 		go executeAction(frRokuActionHost, "right", spaces)
@@ -180,28 +180,28 @@ func MBIntentHandler(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 	case "UP":
 		var spaces = "1"
 		var slotSpaces, err = echoReq.GetSlotValue("Spaces")
-		if err == nil {
+		if err == nil && len(slotSpaces) > 0 {
 			spaces = slotSpaces
 		}
 		go executeAction(mbRokuActionHost, "up", spaces)
 	case "DOWN":
 		var spaces = "1"
 		var slotSpaces, err = echoReq.GetSlotValue("Spaces")
-		if err == nil {
+		if err == nil && len(slotSpaces) > 0 {
 			spaces = slotSpaces
 		}
 		go executeAction(mbRokuActionHost, "down", spaces)
 	case "LEFT":
 		var spaces = "1"
 		var slotSpaces, err = echoReq.GetSlotValue("Spaces")
-		if err == nil {
+		if err == nil && len(slotSpaces) > 0 {
 			spaces = slotSpaces
 		}
 		go executeAction(mbRokuActionHost, "left", spaces)
 	case "RIGHT":
 		var spaces = "1"
 		var slotSpaces, err = echoReq.GetSlotValue("Spaces")
-		if err == nil {
+		if err == nil && len(slotSpaces) > 0 {
 			spaces = slotSpaces
 		}
 		go executeAction(mbRokuActionHost, "right", spaces)
