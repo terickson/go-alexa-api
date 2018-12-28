@@ -462,6 +462,7 @@ func executeAction(host string, command string, action string) {
 	if len(action) > 0 {
 		bodyStr = "{\"command\": " + command + ", \"action\": " + action + "}"
 	}
+	log.Println("body: ", bodyStr)
 	var jsonStr = []byte(bodyStr)
 	req, err := http.NewRequest("POST", host, bytes.NewBuffer(jsonStr))
 	req.Header.Set("Content-Type", "application/json")
