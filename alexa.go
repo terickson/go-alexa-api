@@ -486,7 +486,7 @@ func updateReceiver(host string, bodyStr string) {
 	log.Println("host:", host)
 	log.Println("body: ", bodyStr)
 	var jsonStr = []byte(bodyStr)
-	req, err := http.NewRequest("PUT", host, bytes.NewBuffer(jsonStr))
+	req, err := http.NewRequest(http.MethodPut, host, bytes.NewBuffer(jsonStr))
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
