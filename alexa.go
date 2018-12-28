@@ -484,6 +484,7 @@ func executeAction(host string, command string, value string) {
 // body string should look like this: {"on": true, "volume": "string", "input": "string", "mute": true } but should only include the properties that need to be updated
 func updateReceiver(host string, bodyStr string) {
 	log.Println("host:", host)
+	log.Println("body: ", bodyStr)
 	var jsonStr = []byte(bodyStr)
 	req, err := http.NewRequest("PUT", host, bytes.NewBuffer(jsonStr))
 	req.Header.Set("Content-Type", "application/json")
