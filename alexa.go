@@ -458,9 +458,9 @@ func mbSetInput(inputType string) {
 
 func executeAction(host string, command string, action string) {
 	log.Println("host:", host)
-	var bodyStr = "{\"command\": " + command + "}"
+	var bodyStr = "{\"command\": \"" + command + "\"}"
 	if len(action) > 0 {
-		bodyStr = "{\"command\": " + command + ", \"action\": " + action + "}"
+		bodyStr = "{\"command\": \"" + command + "\", \"action\": \"" + action + "\"}"
 	}
 	log.Println("body: ", bodyStr)
 	var jsonStr = []byte(bodyStr)
