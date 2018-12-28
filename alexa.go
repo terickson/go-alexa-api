@@ -456,11 +456,11 @@ func mbSetInput(inputType string) {
 	}
 }
 
-func executeAction(host string, command string, action string) {
+func executeAction(host string, command string, value string) {
 	log.Println("host:", host)
 	var bodyStr = "{\"command\": \"" + command + "\"}"
-	if len(action) > 0 {
-		bodyStr = "{\"command\": \"" + command + "\", \"action\": \"" + action + "\"}"
+	if len(value) > 0 {
+		bodyStr = "{\"command\": \"" + command + "\", \"value\": \"" + value + "\"}"
 	}
 	log.Println("body: ", bodyStr)
 	var jsonStr = []byte(bodyStr)
