@@ -28,9 +28,9 @@ var applications = map[string]interface{}{
 
 var frTVActionHost = "http://192.168.72.20:8080/tv/actions"
 var mbTVActionHost = "http://192.168.72.25:8080/tv/actions"
-var frRokuActionHost = "http://192.168.72.110:8080/systems/family-room/actions"
-var mbRokuActionHost = "http://192.168.72.110:8080/systems/master-bedroom/actions"
-var frReceiverActionHost = "http://192.168.72.110:8081/receiver/"
+var frRokuActionHost = "http://192.168.72.91:8080/systems/family-room/actions"
+var mbRokuActionHost = "http://192.168.72.91:8080/systems/master-bedroom/actions"
+var frReceiverActionHost = "http://192.168.72.91:8081/receiver/"
 
 func main() {
 	alexa.Run(applications, "8000")
