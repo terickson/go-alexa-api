@@ -257,6 +257,12 @@ func frSetInput(inputType string) {
 		go executeAction(frTVActionHost, "PowerOn", "")
 		time.Sleep(500 * time.Millisecond)
 		go executeAction(frTVActionHost, "HDMI1", "")
+	case "PSFIVE", "PS5", "FIVE", "5", "P.S.5":
+		receiverPayload += ", \"input\": \"AV1\"}"
+		go updateReceiver(frReceiverActionHost, receiverPayload)
+		go executeAction(frTVActionHost, "PowerOn", "")
+		time.Sleep(500 * time.Millisecond)
+		go executeAction(frTVActionHost, "HDMI3", "")
 	case "WIIU", "WIYOU", "WILLYOU", "WEYOU", "WEEYOU", "WE", "WEE", "WE'LL":
 		receiverPayload += ", \"input\": \"HDMI3\"}"
 		go updateReceiver(frReceiverActionHost, receiverPayload)
