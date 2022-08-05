@@ -33,6 +33,7 @@ var mbRokuActionHost = "http://192.168.72.91:8080/systems/master-bedroom/actions
 var frReceiverActionHost = "http://192.168.72.91:8081/receiver/"
 
 func main() {
+	alexa.SetVerifyAWSCerts(false)
 	alexa.Run(applications, "8000")
 }
 
