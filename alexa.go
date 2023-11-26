@@ -411,11 +411,10 @@ func mbSetInput(inputType string) {
 		go executeAction(mbTVActionHost, "PowerOn", "")
 		time.Sleep(500 * time.Millisecond)
 		go executeAction(mbTVActionHost, "InputComponent1", "")
-	case "DCUNIVERSE":
-		go executeAction(mbRokuActionHost, "input", "DC Universe")
+	case "SWITCH":
 		go executeAction(mbTVActionHost, "PowerOn", "")
 		time.Sleep(500 * time.Millisecond)
-		go executeAction(mbTVActionHost, "HDMI1", "")
+		go executeAction(mbTVActionHost, "HDMI2", "")
 	case "DAILYBURN":
 		go executeAction(mbRokuActionHost, "input", "Daily Burn")
 		go executeAction(mbTVActionHost, "PowerOn", "")
