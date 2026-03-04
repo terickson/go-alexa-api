@@ -1,0 +1,6 @@
+services:
+  go-alexa-api:
+    build: .
+    network_mode: host
+    env_file: .env
+    restart: always

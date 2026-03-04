@@ -1,6 +1,6 @@
 module github.com/terickson/go-alexa-api
 
-go 1.18
+go 1.25
 
 require github.com/mikeflynn/go-alexa v0.0.0-20211022155346-6d20dc2c7771
 

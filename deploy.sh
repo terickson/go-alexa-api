@@ -1,7 +1,13 @@
 #!/bin/bash
-rm -f go-alexa-api
-env GOOS=linux GOARCH=arm GOARM=7 go build
-scp go-alexa-api pi@media-server.home:
-ssh pi@media-server.home "sudo systemctl stop go-alexa-api"
-ssh pi@media-server.home "sudo mv /home/pi/go-alexa-api /usr/apps//go-alexa-api/alexa"
-ssh pi@media-server.home "sudo systemctl start go-alexa-api"
+set -euo pipefail
+
+echo "Building arm image..."
+docker buildx build --platform linux/arm/v7 -t go-alexa-api:latest -o type=docker,dest=go-alexa-api.tar .
+
+echo "Transferring to media server..."
+scp go-alexa-api.tar docker-compose.yml .env pi@media-server.home:~/go-alexa-api/
+
+echo "Deploying..."
+ssh pi@media-server.home "cd ~/go-alexa-api && docker load -i go-alexa-api.tar && docker compose up -d"
+
+echo "Done!"

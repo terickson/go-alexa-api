@@ -10,3 +10,12 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+# Environment variables
+.env
+
+# Binary
+go-alexa-api
+
+# Docker build artifacts
+go-alexa-api.tar
