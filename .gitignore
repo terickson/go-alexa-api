@@ -16,6 +16,3 @@
 
 # Binary
 go-alexa-api
-
-# Docker build artifacts
-go-alexa-api.tar

@@ -46,14 +46,6 @@ The server listens on port 8000.
 docker compose up -d
 ```
 
-## Deploy to Raspberry Pi
-
-```bash
-./deploy.sh
-```
-
-Builds an ARM image, transfers it to the media server, and starts the container.
-
 ## Supported Voice Commands
 
 | Command | Description |
