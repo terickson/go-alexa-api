@@ -1,6 +1,6 @@
 # go-alexa-api
 
-Voice skill server for controlling home entertainment devices (TVs, Roku, receiver) across multiple rooms. Supports both **Alexa** and **Google Assistant** via Dialogflow webhooks.
+Voice skill server for controlling home entertainment devices (TVs, Roku, receiver) across multiple rooms. Supports **Alexa** and **Google Assistant via IFTTT**.
 
 Built with Go using the [go-alexa](https://github.com/mikeflynn/go-alexa/tree/master/skillserver) skill server library.
 
@@ -91,72 +91,97 @@ Each input supports multiple voice aliases (e.g., "Netflix", "Net", "Flix" all w
 
 ---
 
-## Google Assistant Setup
+## Google Assistant via IFTTT Setup
 
-The server exposes Dialogflow webhook endpoints on the same port as Alexa:
+> **Note:** Google Assistant Conversational Actions was permanently shut down on **June 13, 2023**. The Dialogflow → Google Assistant integration path no longer exists. The replacement is **IFTTT** — it still has a working Google Assistant trigger and can call any URL via its Webhooks action.
+
+The server exposes simple GET endpoints designed for IFTTT. All parameters go in the URL as query params — no JSON body required.
 
 | Endpoint | Room |
 |----------|------|
-| `POST /google/fr` | Family Room |
-| `POST /google/mbr` | Master Bedroom |
+| `GET /action/fr` | Family Room |
+| `GET /action/mbr` | Master Bedroom |
 
 ### 1. Generate a Webhook Token
-
-The `GOOGLE_WEBHOOK_TOKEN` is a secret you create — not issued by Google:
 
 ```bash
 openssl rand -hex 32
 ```
 
-Add the output to your `.env` file as `GOOGLE_WEBHOOK_TOKEN=<value>`.
+Add the output to your `.env` file as `GOOGLE_WEBHOOK_TOKEN=<value>`. If this variable is set, every request must include `?token=<value>` or it will be rejected with 401.
 
 ### 2. Expose the Server via HTTPS
 
-Dialogflow requires a public HTTPS webhook URL.
-
-**For testing** — use [ngrok](https://ngrok.com):
-```bash
-ngrok http 8000
-```
+IFTTT requires a public HTTPS URL.
 
 **For production** — put nginx or Caddy in front of this server with a TLS certificate (e.g., Let's Encrypt via Certbot).
 
-### 3. Create a Dialogflow ES Agent
+### 3. Create an IFTTT Account
 
-1. Go to [dialogflow.cloud.google.com](https://dialogflow.cloud.google.com) and create an agent.
-2. Under **Fulfillment**, enable **Webhook** and set the URL:
-   - Family Room: `https://your-domain.com/google/fr?token=<your-token>`
-   - Master Bedroom: `https://your-domain.com/google/mbr?token=<your-token>`
+Go to [ifttt.com](https://ifttt.com) and sign in with your Google account. **IFTTT Pro** (~$2.99/month) is required if you need more than 2 applets.
 
-> If you need both rooms, create two Dialogflow agents — one per room — each pointing to its own endpoint URL.
+### 4. Create an Applet
 
-### 4. Create Intents
+For each voice command, create one applet:
 
-Create one intent per command. The **Intent name** must match the table below exactly. Enable **webhook fulfillment** on each intent.
+1. **If This** → Search for **Google Assistant** → Choose a trigger:
+   - "Say a simple phrase" — for commands with no variable (OFF, MUTE, HOME, etc.)
+   - "Say a phrase with a number ingredient" — for VOLUME, CHANNEL, spaces
+   - "Say a phrase with a text ingredient" — for INPUT, SEARCH
+2. Fill in the trigger phrase(s). The ingredient placeholder is `{{NumberField}}` or `{{TextField}}`.
+3. **Then That** → Search for **Webhooks** → **Make a web request**
+   - Method: **GET**
+   - URL: see examples below
+   - Content Type: `application/json`
+   - Body: (leave empty)
 
-| Intent Name | Parameters (Name → Entity) | Example Phrases |
-|-------------|----------------------------|-----------------|
-| `OFF` | — | "turn off the tv" |
-| `MUTE` | — | "mute", "mute the tv" |
-| `UNMUTE` | — | "unmute" |
-| `VOLUME` | `Level` → `@sys.number` | "set volume to 30" |
-| `CHANNEL` | `Number` → `@sys.number` | "go to channel 5" |
-| `CHANNELUP` | — | "channel up" |
-| `CHANNELDOWN` | — | "channel down" |
-| `INPUT` | `InputType` → `@sys.any` | "switch to netflix" |
-| `HOME` | — | "go home" |
-| `BACK` | — | "go back" |
-| `UP` | `Spaces` → `@sys.number` (optional) | "go up", "move up 3" |
-| `DOWN` | `Spaces` → `@sys.number` (optional) | "go down" |
-| `LEFT` | `Spaces` → `@sys.number` (optional) | "go left" |
-| `RIGHT` | `Spaces` → `@sys.number` (optional) | "go right" |
-| `ENTER` | — | "press enter" |
-| `SELECT` | — | "select" |
-| `PLAY` | — | "play" |
-| `FORWARD` | — | "fast forward" |
-| `REVERSE` | — | "rewind" |
-| `SEARCH` | `SearchType` → `@sys.any` | "search for breaking bad" |
+### 5. Example Applet URLs
 
-### 5. Connect to Google Assistant (optional)
+Replace `YOUR_DOMAIN` with your server's hostname and `YOUR_TOKEN` with your `GOOGLE_WEBHOOK_TOKEN` value.
 
-In Dialogflow, go to **Integrations → Google Assistant** and click **Test**. This opens the Actions on Google simulator. For personal use you do not need to publish — keeping the action in draft/test mode works on your own Google account's devices indefinitely.
+#### Family Room
+
+| Voice phrase | URL |
+|---|---|
+| "turn off the TV in the family room" | `https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=OFF` |
+| "mute the TV in the family room" | `https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=MUTE` |
+| "unmute the TV in the family room" | `https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=UNMUTE` |
+| "set family room volume to #" (NumberField) | `https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=VOLUME&level={{NumberField}}` |
+| "go to channel # in the family room" (NumberField) | `https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=CHANNEL&number={{NumberField}}` |
+| "channel up in the family room" | `https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=CHANNELUP` |
+| "channel down in the family room" | `https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=CHANNELDOWN` |
+| "switch the family room to $" (TextField) | `https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=INPUT&input={{TextField}}` |
+| "search the family room for $" (TextField) | `https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=SEARCH&search={{TextField}}` |
+| "go home in the family room" | `https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=HOME` |
+| "go back in the family room" | `https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=BACK` |
+| "go up in the family room" | `https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=UP` |
+
+#### Master Bedroom
+
+Same as above with `/action/mbr` instead of `/action/fr`.
+
+### Intent Reference
+
+| Intent | Extra Query Param | Default |
+|--------|------------------|---------|
+| `OFF`, `MUTE`, `UNMUTE`, `HOME`, `BACK`, `ENTER`, `SELECT`, `PLAY`, `FORWARD`, `REVERSE`, `CHANNELUP`, `CHANNELDOWN` | none | — |
+| `VOLUME` | `level=<number>` | required |
+| `CHANNEL` | `number=<number>` | required |
+| `INPUT` | `input=<text>` | required |
+| `SEARCH` | `search=<text>` | required |
+| `UP`, `DOWN`, `LEFT`, `RIGHT` | `spaces=<number>` | `1` |
+
+### Testing
+
+You can test any command by pasting a URL directly in your browser (or with curl):
+
+```bash
+curl "https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=OFF"
+# → {"status":"ok","intent":"OFF"}
+
+curl "https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=VOLUME&level=25"
+# → {"status":"ok","intent":"VOLUME"}
+
+curl "https://YOUR_DOMAIN/action/fr?token=YOUR_TOKEN&intent=INPUT&input=netflix"
+# → {"status":"ok","intent":"INPUT"}
+```
