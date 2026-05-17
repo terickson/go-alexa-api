@@ -47,6 +47,24 @@ The server listens on port 8000.
 docker compose up -d
 ```
 
+## Updating on the Production Server
+
+The app is built from source inside Docker, so updating requires pulling the new code and rebuilding the image:
+
+```bash
+git pull
+docker compose up -d --build
+```
+
+`--build` forces Docker to rebuild the image from the latest code before restarting the container. The old container is stopped and replaced automatically. Downtime is a few seconds during the rebuild.
+
+To verify the new version is running:
+
+```bash
+docker compose ps
+docker compose logs --tail=20
+```
+
 ## Supported Voice Commands
 
 | Command | Description |
