@@ -1,0 +1,94 @@
+{
+  "id": "a1b2c3d4-0004-4000-8000-000000000004",
+  "name": "VOLUME",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "VOLUME",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "a1b2c3d4-0004-4000-8000-200000000001",
+          "required": true,
+          "dataType": "@sys.number",
+          "name": "Level",
+          "value": "$Level",
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "a1b2c3d4-0004-4000-8000-100000000001",
+      "data": [
+        {"text": "set volume to ", "userDefined": false},
+        {"text": "30", "alias": "Level", "meta": "@sys.number", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0004-4000-8000-100000000002",
+      "data": [
+        {"text": "volume ", "userDefined": false},
+        {"text": "50", "alias": "Level", "meta": "@sys.number", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0004-4000-8000-100000000003",
+      "data": [
+        {"text": "turn volume to ", "userDefined": false},
+        {"text": "25", "alias": "Level", "meta": "@sys.number", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0004-4000-8000-100000000004",
+      "data": [
+        {"text": "set the volume to ", "userDefined": false},
+        {"text": "40", "alias": "Level", "meta": "@sys.number", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0004-4000-8000-100000000005",
+      "data": [
+        {"text": "volume level ", "userDefined": false},
+        {"text": "20", "alias": "Level", "meta": "@sys.number", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    }
+  ],
+  "lastUpdate": 0
+}

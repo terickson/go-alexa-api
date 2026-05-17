@@ -1,0 +1,73 @@
+{
+  "id": "a1b2c3d4-0001-4000-8000-000000000001",
+  "name": "OFF",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "OFF",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "a1b2c3d4-0001-4000-8000-100000000001",
+      "data": [{"text": "turn off the tv", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-100000000002",
+      "data": [{"text": "power off", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-100000000003",
+      "data": [{"text": "turn it off", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-100000000004",
+      "data": [{"text": "shut off the tv", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-100000000005",
+      "data": [{"text": "turn the TV off", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-100000000006",
+      "data": [{"text": "switch off", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    }
+  ],
+  "lastUpdate": 0
+}

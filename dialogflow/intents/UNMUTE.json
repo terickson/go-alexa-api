@@ -1,0 +1,59 @@
+{
+  "id": "a1b2c3d4-0003-4000-8000-000000000003",
+  "name": "UNMUTE",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "UNMUTE",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "a1b2c3d4-0003-4000-8000-100000000001",
+      "data": [{"text": "unmute", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0003-4000-8000-100000000002",
+      "data": [{"text": "unmute the tv", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0003-4000-8000-100000000003",
+      "data": [{"text": "turn the sound back on", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0003-4000-8000-100000000004",
+      "data": [{"text": "restore sound", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    }
+  ],
+  "lastUpdate": 0
+}

@@ -1,0 +1,59 @@
+{
+  "id": "a1b2c3d4-0009-4000-8000-000000000009",
+  "name": "HOME",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "HOME",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "a1b2c3d4-0009-4000-8000-100000000001",
+      "data": [{"text": "go home", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0009-4000-8000-100000000002",
+      "data": [{"text": "home screen", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0009-4000-8000-100000000003",
+      "data": [{"text": "Roku home", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0009-4000-8000-100000000004",
+      "data": [{"text": "take me to home", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    }
+  ],
+  "lastUpdate": 0
+}

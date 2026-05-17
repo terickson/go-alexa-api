@@ -1,0 +1,59 @@
+{
+  "id": "a1b2c3d4-0018-4000-8000-000000000018",
+  "name": "FORWARD",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "FORWARD",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "a1b2c3d4-0018-4000-8000-100000000001",
+      "data": [{"text": "fast forward", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0018-4000-8000-100000000002",
+      "data": [{"text": "forward", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0018-4000-8000-100000000003",
+      "data": [{"text": "skip ahead", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0018-4000-8000-100000000004",
+      "data": [{"text": "skip forward", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    }
+  ],
+  "lastUpdate": 0
+}

@@ -1,0 +1,94 @@
+{
+  "id": "a1b2c3d4-0005-4000-8000-000000000005",
+  "name": "CHANNEL",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "CHANNEL",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "a1b2c3d4-0005-4000-8000-200000000001",
+          "required": true,
+          "dataType": "@sys.number",
+          "name": "Number",
+          "value": "$Number",
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "a1b2c3d4-0005-4000-8000-100000000001",
+      "data": [
+        {"text": "go to channel ", "userDefined": false},
+        {"text": "5", "alias": "Number", "meta": "@sys.number", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0005-4000-8000-100000000002",
+      "data": [
+        {"text": "channel ", "userDefined": false},
+        {"text": "42", "alias": "Number", "meta": "@sys.number", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0005-4000-8000-100000000003",
+      "data": [
+        {"text": "switch to channel ", "userDefined": false},
+        {"text": "7", "alias": "Number", "meta": "@sys.number", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0005-4000-8000-100000000004",
+      "data": [
+        {"text": "change to channel ", "userDefined": false},
+        {"text": "12", "alias": "Number", "meta": "@sys.number", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0005-4000-8000-100000000005",
+      "data": [
+        {"text": "put on channel ", "userDefined": false},
+        {"text": "3", "alias": "Number", "meta": "@sys.number", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    }
+  ],
+  "lastUpdate": 0
+}

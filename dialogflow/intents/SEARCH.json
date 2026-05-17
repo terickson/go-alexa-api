@@ -1,0 +1,84 @@
+{
+  "id": "a1b2c3d4-0020-4000-8000-000000000020",
+  "name": "SEARCH",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "SEARCH",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "a1b2c3d4-0020-4000-8000-200000000001",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "SearchType",
+          "value": "$SearchType",
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "a1b2c3d4-0020-4000-8000-100000000001",
+      "data": [
+        {"text": "search for ", "userDefined": false},
+        {"text": "breaking bad", "alias": "SearchType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0020-4000-8000-100000000002",
+      "data": [
+        {"text": "find ", "userDefined": false},
+        {"text": "stranger things", "alias": "SearchType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0020-4000-8000-100000000003",
+      "data": [
+        {"text": "search ", "userDefined": false},
+        {"text": "the office", "alias": "SearchType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0020-4000-8000-100000000004",
+      "data": [
+        {"text": "look for ", "userDefined": false},
+        {"text": "game of thrones", "alias": "SearchType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    }
+  ],
+  "lastUpdate": 0
+}

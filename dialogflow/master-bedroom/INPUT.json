@@ -1,0 +1,144 @@
+{
+  "id": "a1b2c3d4-0008-4000-8000-000000000108",
+  "name": "INPUT",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "INPUT",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "a1b2c3d4-0008-4000-8000-200000000101",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "InputType",
+          "value": "$InputType",
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "a1b2c3d4-0008-4000-8000-110000000001",
+      "data": [
+        {"text": "switch to ", "userDefined": false},
+        {"text": "Netflix", "alias": "InputType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0008-4000-8000-110000000002",
+      "data": [
+        {"text": "switch to ", "userDefined": false},
+        {"text": "PS2", "alias": "InputType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0008-4000-8000-110000000003",
+      "data": [
+        {"text": "change to ", "userDefined": false},
+        {"text": "Wii", "alias": "InputType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0008-4000-8000-110000000004",
+      "data": [
+        {"text": "switch to ", "userDefined": false},
+        {"text": "Switch", "alias": "InputType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0008-4000-8000-110000000005",
+      "data": [
+        {"text": "go to ", "userDefined": false},
+        {"text": "YouTube", "alias": "InputType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0008-4000-8000-110000000006",
+      "data": [
+        {"text": "switch to ", "userDefined": false},
+        {"text": "Plex", "alias": "InputType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0008-4000-8000-110000000007",
+      "data": [
+        {"text": "change to ", "userDefined": false},
+        {"text": "HBO", "alias": "InputType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0008-4000-8000-110000000008",
+      "data": [
+        {"text": "go to ", "userDefined": false},
+        {"text": "Prime", "alias": "InputType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0008-4000-8000-110000000009",
+      "data": [
+        {"text": "switch to ", "userDefined": false},
+        {"text": "the TV", "alias": "InputType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0008-4000-8000-110000000010",
+      "data": [
+        {"text": "put on ", "userDefined": false},
+        {"text": "Crunchyroll", "alias": "InputType", "meta": "@sys.any", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    }
+  ],
+  "lastUpdate": 0
+}

@@ -1,0 +1,89 @@
+{
+  "id": "a1b2c3d4-0011-4000-8000-000000000011",
+  "name": "UP",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "UP",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "a1b2c3d4-0011-4000-8000-200000000001",
+          "required": false,
+          "dataType": "@sys.number",
+          "name": "Spaces",
+          "value": "$Spaces",
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "a1b2c3d4-0011-4000-8000-100000000001",
+      "data": [{"text": "go up", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0011-4000-8000-100000000002",
+      "data": [{"text": "up", "userDefined": false}],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0011-4000-8000-100000000003",
+      "data": [
+        {"text": "go up ", "userDefined": false},
+        {"text": "3", "alias": "Spaces", "meta": "@sys.number", "userDefined": true},
+        {"text": " times", "userDefined": false}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0011-4000-8000-100000000004",
+      "data": [
+        {"text": "scroll up ", "userDefined": false},
+        {"text": "2", "alias": "Spaces", "meta": "@sys.number", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    },
+    {
+      "id": "a1b2c3d4-0011-4000-8000-100000000005",
+      "data": [
+        {"text": "move up ", "userDefined": false},
+        {"text": "5", "alias": "Spaces", "meta": "@sys.number", "userDefined": true}
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "lang": "en"
+    }
+  ],
+  "lastUpdate": 0
+}
