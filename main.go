@@ -17,6 +17,14 @@ var applications = map[string]interface{}{
 		OnIntent: handleIntent(FamilyRoom),
 		OnLaunch: handleIntent(FamilyRoom),
 	},
+	"/google/mbr": alexa.StdApplication{
+		Methods: "POST",
+		Handler: handleGoogleIntent(MasterBedroom),
+	},
+	"/google/fr": alexa.StdApplication{
+		Methods: "POST",
+		Handler: handleGoogleIntent(FamilyRoom),
+	},
 }
 
 func main() {
